@@ -33,9 +33,9 @@
 						"markdownDescription": "The path of your `global` binary",
 						"default": "global"
 					},
-					"c-hierarchy.gtagDbDirPrefix": {
+					"c-hierarchy.gtagDatabaseDirPrefix": {
 						"type": ["string", "null"],
-						"markdownDescription": "If this config is set to `prefixDir`, it will read the GTAGS DB under `prefixDir/project_dir`. This is the same as `Obj Dir Prefix` config of the extension `jaycetyle.vscode-gnu-global`."
+						"markdownDescription": "If this config is set to `prefixDir`, it will read the GTAGS DB under `prefixDir/project_dir`. This is the same as `Obj Dir Prefix` config of the extension `C/C++ GNU Global`."
 					}
 				}
 			}

@@ -1,8 +1,9 @@
 {
-  "name": "c-hierarchy",
+  	"name": "c-hierarchy",
 	"displayName": "GNU C Call Hierarchy",
 	"description": "Call Hierarchy for c/c++ using gtags",
 	"version": "0.0.1",
+	"publisher": "miki0w0",
 	"engines": {
 		"vscode": "^1.67.0"
 	},
@@ -22,6 +23,10 @@
     	"onLanguage:c",
 		"onLanguage:cpp"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/0w0miki/c-hierarchy"
+	},
 	"main": "./out/extension.js",
 	"contributes": {
 		"configuration":[

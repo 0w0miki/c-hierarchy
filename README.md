@@ -39,6 +39,9 @@ The extension [C Call Hierarchy](https://marketplace.visualstudio.com/items?item
 
 ## Release Notes
 
+### 0.0.2
+
+Add Icon
 ### 0.0.1
 
 Initial release.

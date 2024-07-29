@@ -1,4 +1,4 @@
-import { workspace, window, Position, Range } from "vscode";
+import { workspace, window, Position, Range, env } from "vscode";
 import * as childProcess from "child_process";
 
 export enum LogLevel {
@@ -19,10 +19,7 @@ export function getWorkspaceRootPath(): string {
 }
 
 export function showMessage(msg: string, logLevel: LogLevel = LogLevel.Info): void {
-  const canShowMsg: boolean = true;
-  if (canShowMsg) {
-    showMsgFun[logLevel](msg);
-  }
+  showMsgFun[logLevel](msg);
 }
 
 export async function getWordRange(filePath: string, line: number, word: string): Promise<Range> {
@@ -38,7 +35,6 @@ export async function getWordRange(filePath: string, line: number, word: string)
     wordEnd = wordMatch.index + word.length;
   }
 
-
   const wordRangeStart = new Position(line, wordStart);
   const wordRangeEnd = new Position(line, wordEnd);
   let wordRange = new Range(wordRangeStart, wordRangeEnd);
@@ -47,12 +43,12 @@ export async function getWordRange(filePath: string, line: number, word: string)
 }
 
 export async function execCmd(command: string): Promise<string> {
-  let dir = getWorkspaceRootPath();
+  const dir = getWorkspaceRootPath();
 
   return new Promise((resolve, reject) => {
      childProcess.exec(
         command,
-        { cwd: dir },
+        { cwd: dir, shell: env.shell },
         async (error: childProcess.ExecException | null, stdout: string, stderr: string) => {
            if (error) {
               reject(stderr);

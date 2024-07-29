@@ -54,7 +54,7 @@ function loadConfig() {
 	// Check path accessibility
 	const gtagsDbPath = `${dirPrefix}${getWorkspaceRootPath()}`;
 	if (!fs.existsSync(gtagsDbPath)) {
-		showMessage('gtag DB Dir Prefix is wrong. Path does not exsist. Use workspace root path.', LogLevel.Warn);
+		showMessage('gtag DB Dir Prefix is wrong. Path does not exist. Use workspace root path.', LogLevel.Warn);
 	} else if (fs.statSync(`${gtagsDbPath}/GTAGS`, {throwIfNoEntry: false}) === undefined) {
 		showMessage('No tags DB file found. Use workspace root path.', LogLevel.Warn);
 	} else {

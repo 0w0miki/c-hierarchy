@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { getWorkspaceRootPath, showMessage, LogLevel, getWordRange, execCmd, parseGlobalOutput } from "./utils";
+import { getWorkspaceRootPath, getWordRange, execCmd, parseGlobalOutput } from "./utils";
 
 let globalCmd = "global";
 
@@ -19,7 +19,7 @@ class SymbolInfo {
   symbolRange?: vscode.Range; // the symbol range in the line
 
   constructor(funName: string, filePath: string, line: number, name?: string) {
-    // if the name is lack, it is the defination of function.
+    // if the name is lack, it is the definition of function.
     this.funName = funName ?? '';
     this.filePath = filePath ?? '';
     this.line = line ?? -1;
@@ -29,7 +29,6 @@ class SymbolInfo {
   public get fileName(): string {
     return this.filePath.split('/').slice(-1)[0];
   }
-
 
   public get fullFilePath(): string {
     return `${getWorkspaceRootPath()}/${this.filePath}`;
@@ -159,7 +158,7 @@ async function findCaller(funcName: string): Promise<SymbolInfo[]> {
     // FIXME There are cases that the declaration is regarded as reference.
     // In this case the symbol could be something else.
     if (fileSymbols[lastIndex].name === funcName) {
-      // skip function defination or declaration
+      // skip function definition or declaration
       continue;
     }
 

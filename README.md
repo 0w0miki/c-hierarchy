@@ -39,6 +39,9 @@ The extension [C Call Hierarchy](https://marketplace.visualstudio.com/items?item
 
 ## Release Notes
 
+### 0.0.4
+Fix database path is not correctly read.
+
 ### 0.0.3
 
 Use default shell environment.

@@ -43,7 +43,7 @@ async function initSubscription(context: vscode.ExtensionContext) {
 
 function loadConfig() {
 	const config = vscode.workspace.getConfiguration('c-hierarchy');
-	const dirPrefix = config.gtagDbDirPrefix;
+	const dirPrefix = config.gtagDatabaseDirPrefix;
 	if (config.globalExecutable) {
 		cHierarchyGenerator.setGlobal(config.globalExecutable);
 	}
